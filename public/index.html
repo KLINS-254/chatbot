@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#090812">
+  <meta name="description" content="KLINSMD 4 PRO IV — Kenyan AI flirting assistant. Flirt smart. Stay confident. Never simp.">
+  <title>KLINSMD 4 PRO IV — Flirt Smart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="KLINSMD home"><span class="brand-mark">K</span><span>KLINSMD <b>4 PRO IV</b></span></a>
+    <div class="top-actions"><span class="online-dot"></span><span class="top-label">KENYAN AI</span><button id="historyBtn" class="icon-btn hidden" title="Conversation history">◷</button></div>
+  </header>
+
+  <main id="app">
+    <section id="welcomeView" class="view welcome-view">
+      <div class="hero-chip"><span class="spark">✦</span> YOUR PERSONAL TEXTING WINGMAN</div>
+      <h1>Flirt smart.<br><span>Stay unforgettable.</span></h1>
+      <p class="hero-copy">The Kenyan texting intelligence that helps you read the vibe and reply with confidence.</p>
+      <div class="feature-row"><span>✦ Kenyan Sheng</span><span>✦ Smart comebacks</span><span>✦ One clean reply</span></div>
+      <div class="panel welcome-panel">
+        <div class="panel-kicker">WELCOME TO KLINSMD</div>
+        <h2>What would you like to do?</h2>
+        <button class="primary-btn full" id="startBtn">＋ &nbsp; START NEW CHAT <span>→</span></button>
+        <button class="secondary-btn full" id="continueBtn">↗ &nbsp; CONTINUE EXISTING CHAT</button>
+        <p class="tiny-note">Your conversations are private and saved securely.</p>
+      </div>
+      <p class="tagline">FLIRT SMART. STAY CONFIDENT. NEVER SIMP.</p>
+    </section>
+
+    <section id="setupView" class="view narrow-view hidden">
+      <button class="back-btn" data-back="welcomeView">← Back</button>
+      <div class="step-label">NEW CONVERSATION <span>01 / 02</span></div>
+      <h1>Who are you<br><span>flirting with?</span></h1>
+      <p class="muted">Let's set up your conversation identity.</p>
+      <div class="gender-grid">
+        <button class="gender-card selected" data-gender="girl"><span class="gender-icon">♀</span><b>A Girl</b><small>Her messages, her vibe</small></button>
+        <button class="gender-card" data-gender="boy"><span class="gender-icon">♂</span><b>A Boy</b><small>His messages, his vibe</small></button>
+      </div>
+      <label class="field-label" for="personName">WHAT'S THEIR NAME?</label>
+      <input id="personName" class="text-input" maxlength="50" placeholder="Enter their name..." autocomplete="off">
+      <button id="createBtn" class="primary-btn full">CREATE MY CHAT <span>→</span></button>
+    </section>
+
+    <section id="credentialsView" class="view narrow-view hidden">
+      <div class="success-icon">✓</div>
+      <div class="step-label">IDENTITY CREATED</div>
+      <h1>Your chat is<br><span>ready.</span></h1>
+      <p class="muted">Save all three details below. You'll need them to recover this conversation on another visit or device.</p>
+      <div class="credential-card">
+        <label>SESSION NAME</label><div class="credential-value" id="sessionNameValue"></div>
+        <label>6-DIGIT RECOVERY CODE</label><div class="credential-value code-value" id="recoveryCodeValue"></div>
+        <label>PRIVATE RECOVERY KEY</label><div class="credential-value key-value" id="recoveryKeyValue"></div>
+        <button id="copyCredentials" class="secondary-btn full">▣ &nbsp; COPY ALL DETAILS</button>
+      </div>
+      <div class="warning-note">⚠ Keep your recovery key private. Anyone with all three details can access this chat. We cannot retrieve a lost recovery key.</div>
+      <button id="enterChatBtn" class="primary-btn full">I'VE SAVED THEM — OPEN CHAT <span>→</span></button>
+    </section>
+
+    <section id="recoverView" class="view narrow-view hidden">
+      <button class="back-btn" data-back="welcomeView">← Back</button>
+      <div class="step-label">CONVERSATION RECOVERY</div>
+      <h1>Welcome<br><span>back.</span></h1>
+      <p class="muted">Enter the credentials you saved when creating the chat.</p>
+      <label class="field-label" for="recoverName">SESSION NAME</label>
+      <input id="recoverName" class="text-input" placeholder="KLINS-NAME-ABC123" autocomplete="off">
+      <label class="field-label" for="recoverCode">6-DIGIT CODE</label>
+      <input id="recoverCode" class="text-input" inputmode="numeric" maxlength="6" placeholder="000000">
+      <label class="field-label" for="recoverKey">PRIVATE RECOVERY KEY</label>
+      <input id="recoverKey" class="text-input" autocomplete="off" placeholder="32-character recovery key">
+      <button id="recoverBtn" class="primary-btn full">RESTORE MY CONVERSATION <span>→</span></button>
+      <p class="tiny-note">The six-digit code alone is not enough to access a conversation.</p>
+    </section>
+
+    <section id="chatView" class="view chat-view hidden">
+      <aside class="chat-sidebar">
+        <div class="sidebar-heading">YOUR SPACE</div>
+        <button id="newChatBtn" class="sidebar-action">＋ &nbsp; New conversation</button>
+        <button id="deleteChatBtn" class="sidebar-action danger-text">⌫ &nbsp; Delete this chat</button>
+        <div class="sidebar-tip"><b>PRO TIP</b><p>Match their energy. Keep it light. Never force a vibe that isn't there.</p></div>
+      </aside>
+      <div class="chat-main">
+        <div class="chat-header">
+          <div class="person-avatar" id="personAvatar">?</div>
+          <div class="person-info"><b id="chatPersonName">Conversation</b><small><span class="online-dot"></span> PRIVATE SESSION</small></div>
+          <button class="icon-btn mobile-new" id="mobileNewBtn" title="New conversation">＋</button>
+          <button class="icon-btn" id="settingsBtn" title="Settings">⚙</button>
+        </div>
+        <div class="status-strip">
+          <span id="languageStatus">LANGUAGE · AUTO</span><span class="status-divider"></span><span id="modeStatus">MODE · AUTO</span><span id="egoIndicator" class="ego-pill hidden">⚡ EGO ACTIVE</span>
+        </div>
+        <div id="messageList" class="message-list">
+          <div class="welcome-message"><div class="mini-logo">K</div><h3>You're in control.</h3><p>Paste their latest message. I'll read the vibe and give you one reply worth sending.</p></div>
+        </div>
+        <div id="analysisBar" class="analysis-bar hidden"></div>
+        <div class="composer">
+          <textarea id="messageInput" rows="2" maxlength="1200" placeholder="Paste their message here..."></textarea>
+          <button id="generateBtn" class="send-btn"><span>✦</span> GENERATE REPLY</button>
+          <div class="composer-foot"><span>↵ AI adapts to their language</span><span id="charCount">0 / 1200</span></div>
+        </div>
+      </div>
+      <div id="settingsPanel" class="settings-panel hidden">
+        <div class="settings-head"><b>PERSONALITY MODE</b><button id="closeSettings" class="icon-btn">×</button></div>
+        <p class="muted small">Choose your energy. AUTO lets the AI decide.</p>
+        <div class="mode-grid" id="modeGrid">
+          <button class="mode-option active" data-mode="AUTO"><b>✦ AUTO</b><small>Read the room</small></button>
+          <button class="mode-option" data-mode="SMOOTH"><b>♡ SMOOTH</b><small>Charming & easy</small></button>
+          <button class="mode-option" data-mode="EGO"><b>⚡ EGO</b><small>Confident replies</small></button>
+          <button class="mode-option" data-mode="SHENG"><b>⌁ SHENG</b><small>Kenyan street vibe</small></button>
+          <button class="mode-option" data-mode="ROMANTIC"><b>♡ ROMANTIC</b><small>Sweet, not needy</small></button>
+          <button class="mode-option" data-mode="BRAG"><b>♛ BRAG</b><small>Playful confidence</small></button>
+          <button class="mode-option" data-mode="MYSTERY"><b>◉ MYSTERY</b><small>Intriguing energy</small></button>
+          <button class="mode-option" data-mode="SAVAGE"><b>✧ SAVAGE</b><small>Sharp, never cruel</small></button>
+          <button class="mode-option" data-mode="NATURAL"><b>○ NATURAL</b><small>Everyday texting</small></button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="toast" class="toast"></div>
+  <div id="confirmModal" class="modal hidden"><div class="modal-card"><h3 id="modalTitle">Are you sure?</h3><p id="modalText">This action cannot be undone.</p><div class="modal-actions"><button id="modalCancel" class="secondary-btn">CANCEL</button><button id="modalConfirm" class="primary-btn">CONFIRM</button></div></div></div>
+  <script src="/app.js"></script>
+</body>
+</html>
